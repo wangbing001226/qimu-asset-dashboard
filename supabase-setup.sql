@@ -8,6 +8,7 @@ create table if not exists public.asset_state (
 );
 
 alter table public.asset_state enable row level security;
+revoke all on public.asset_state from anon, public;
 grant select, insert, update on public.asset_state to authenticated;
 
 drop policy if exists "Users can read their own encrypted asset state" on public.asset_state;
